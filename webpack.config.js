@@ -2,11 +2,15 @@ var webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  devtool: 'eval-source-map',
+  devtool: 'cheap-module-eval-source-map',
   entry:  __dirname + "/src/index.js",
   output: {
     path: __dirname + "/dist",
     filename: "bundle.js"
+  },
+
+  resolve: {
+    extensions: ['', '.js', '.jsx']
   },
 
   module: {
@@ -21,22 +25,10 @@ module.exports = {
     ],
     loaders: [
       { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' },
-      { test: /\.css$/, loader: 'style!css' },
-      { test: /\.png$/, loader: "url-loader?limit=100000" },
-      { test: /\.jpg$/, loader: "file-loader" },
-      { test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff' },
-      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream' },
-      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file' },
-      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml' }
+      { test: /\.scss$/, loader: 'style-loader!css-loader!autoprefixer-loader!sass-loader' },
+      { test: /\.(woff2?|svg|jpe?g|png|gif|ico)$/, loader: 'url?limit=1000000' },
     ]
   },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
-
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
 
   devServer: {
     contentBase: "./dist",
@@ -44,5 +36,11 @@ module.exports = {
     historyApiFallback: true,
     inline: true,
     hot: true
-  }
+  },
+
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
+
+
 }
