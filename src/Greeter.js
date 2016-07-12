@@ -1,13 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react';
 
-class Greeter extends Component{
-  render() {
-    return (
-      <div>
-        Hello World
-      </div>
-    );
-  }
+function Greeter() {
+  return (
+    <div>
+      Hello World
+    </div>
+  );
 }
 
 export default Greeter;
