@@ -5,10 +5,22 @@ module.exports = {
     path: __dirname + "/dist",
     filename: "bundle.js"
   },
+
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel'
+      }
+    ]
+  },
+
   devServer: {
     contentBase: "./dist",
     colors: true,
     historyApiFallback: true,
+    hot: true,
     inline: true
   }
 }
