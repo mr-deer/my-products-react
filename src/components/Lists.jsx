@@ -3,9 +3,10 @@ import List from './List.jsx';
 
 const propTypes = {
   lists: PropTypes.array,
+  removeList: PropTypes.func,
 };
 
-export default function Lists({ lists }) {
+export default function Lists({ lists, removeList }) {
   const newestLists = lists.slice(-7).reverse();
 
   return (
@@ -14,7 +15,11 @@ export default function Lists({ lists }) {
       <ul>
         {
           newestLists.map((item) =>
-            <List list={item} key={item.id} />
+            <List
+              list={item}
+              key={item.id}
+              removeList={removeList}
+            />
           )
         }
       </ul>

@@ -22,7 +22,12 @@ class Header extends Component {
   }
 
   addListHandler() {
+    if (this.state.name.trim() === '') {
+      return;
+    }
+
     this.props.actions.addList(this.state.name);
+
     this.setState({
       name: '',
     });

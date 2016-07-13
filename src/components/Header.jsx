@@ -20,4 +20,5 @@ export default function Header({ name, addList, changeName }) {
 Header.propTypes = {
   changeName: PropTypes.func,
   addList: PropTypes.func,
+  name: PropTypes.string,
 };
