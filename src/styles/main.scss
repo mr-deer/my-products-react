@@ -7,6 +7,17 @@ body {
     font-size: 20px;
 }
 
+.list-elem {
+    border: 1px solid black;
+    margin-bottom: 1px;
+    max-width: 200px;
+}
+
 button {
     padding: 0 10px;
+}
+
+.products {
+    margin-left: 10px;
+    color: darkslategray;
 }
