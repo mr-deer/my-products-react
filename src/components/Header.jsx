@@ -1,11 +1,18 @@
 import React, { PropTypes } from 'react';
 
-export default function Header({ addList, changeName }) {
+const preventDefault = f => e => {
+  e.preventDefault();
+  f(e);
+};
+
+export default function Header({ name, addList, changeName }) {
   return (
     <div>
       <div>logo</div>
-      <input type="text" onChange={changeName} />
-      <button onClick={addList}>Add</button>
+      <form onSubmit={preventDefault(addList)}>
+        <input type="text" onChange={changeName} value={name} />
+        <button>Add</button>
+      </form>
     </div>
   );
 }

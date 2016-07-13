@@ -6,11 +6,7 @@ const propTypes = {
 
 export default function List({ list }) {
   return (
-    <li>
-      {
-        list.name
-      }
-    </li>
+    <li>{list.name}</li>
   );
 }
 

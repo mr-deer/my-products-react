@@ -23,6 +23,9 @@ class Header extends Component {
 
   addListHandler() {
     this.props.actions.addList(this.state.name);
+    this.setState({
+      name: '',
+    });
   }
 
   changeName(name) {
@@ -36,6 +39,7 @@ class Header extends Component {
       <HeaderComponent
         addList={this.addListHandler}
         changeName={(e) => this.changeName(e.target.value)}
+        name={this.state.name}
       />
     );
   }

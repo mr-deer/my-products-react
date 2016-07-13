@@ -6,14 +6,15 @@ const propTypes = {
 };
 
 export default function Lists({ lists }) {
-  console.log(lists, 'propsListsComponent');
+  const newestLists = lists.slice(-7).reverse();
+
   return (
     <div>
       <h1>Lists</h1>
       <ul>
         {
-          lists.map((list) =>
-            <List list={list} key={lists.id} />
+          newestLists.map((item) =>
+            <List list={item} key={item.id} />
           )
         }
       </ul>

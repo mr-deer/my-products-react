@@ -12,7 +12,6 @@ class Lists extends Component {
   }
 
   render() {
-    console.log(this.props.lists.lists, 'props');
     return (
       <ListComponent lists={this.props.lists.lists} />
     );
