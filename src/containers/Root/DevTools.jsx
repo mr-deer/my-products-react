@@ -10,10 +10,9 @@ export default createDevTools(
     toggleVisibilityKey="ctrl-h"
     changePositionKey="ctrl-w"
     changeMonitorKey="ctrl-m"
-    defaultIsVisible={false}
   >
+    <LogMonitor />
     <Inspector />
     <SliderMonitor keyboardEnabled />
-    <LogMonitor />
   </DockMonitor>
 );
