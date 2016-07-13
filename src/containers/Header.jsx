@@ -11,7 +11,6 @@ const propTypes = {
 };
 
 class Header extends Component {
-
   constructor(props) {
     super(props);
 
