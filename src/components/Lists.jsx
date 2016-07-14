@@ -7,9 +7,17 @@ const propTypes = {
   addItem: PropTypes.func,
   changeItemName: PropTypes.func,
   itemName: PropTypes.string,
+  removeItem: PropTypes.func,
 };
 
-export default function Lists({ lists, removeList, addItem, changeItemName, itemName }) {
+export default function Lists({
+    lists,
+    removeList,
+    addItem,
+    changeItemName,
+    itemName,
+    removeItem,
+  }) {
   const newestLists = lists.slice(-7).reverse();
 
   return (
@@ -25,6 +33,7 @@ export default function Lists({ lists, removeList, addItem, changeItemName, item
               addItem={addItem}
               changeName={changeItemName}
               name={itemName}
+              removeItem={removeItem}
             />
           )
         }

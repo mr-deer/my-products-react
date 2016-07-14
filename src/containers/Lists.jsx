@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ListsComponent from '../components/Lists.jsx';
 import { removeList } from '../actions/lists.js';
-import { addItem } from '../actions/items.js';
+import { addItem, removeItem } from '../actions/items.js';
 
 const propTypes = {
   lists: PropTypes.object,
   actions: PropTypes.shape({
     removeList: PropTypes.func,
     addItem: PropTypes.func,
+    removeItem: PropTypes.func,
   }),
 };
 
@@ -23,18 +24,19 @@ class Lists extends Component {
 
     this.addItemHandler = this.addItemHandler.bind(this);
     this.removeListHandler = this.removeListHandler.bind(this);
+    this.removeItemHandler = this.removeItemHandler.bind(this);
   }
 
   removeListHandler(id) {
     this.props.actions.removeList(id);
   }
 
-  addItemHandler(id, itemName) {
+  addItemHandler(listId, itemName) {
     if (this.state.itemName.trim() === '') {
       return;
     }
 
-    this.props.actions.addItem(id, itemName);
+    this.props.actions.addItem(listId, itemName);
 
     this.setState({
       itemName: '',
@@ -47,6 +49,10 @@ class Lists extends Component {
     });
   }
 
+  removeItemHandler(listId, itemId) {
+    this.props.actions.removeItem(listId, itemId);
+  }
+
   render() {
     return (
       <ListsComponent
@@ -55,6 +61,7 @@ class Lists extends Component {
         addItem={this.addItemHandler}
         changeItemName={(e) => this.changeItemName(e.target.value)}
         itemName={this.state.itemName}
+        removeItem={this.removeItemHandler}
       />
     );
   }
@@ -66,6 +73,7 @@ export default connect(state => ({
   actions: bindActionCreators({
     removeList,
     addItem,
+    removeItem,
   }, dispatch),
 }))(Lists);
 

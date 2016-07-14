@@ -17,6 +17,7 @@ ul {
     border: 1px solid black;
     margin-bottom: 1px;
     max-width: 300px;
+    padding:5px;
 }
 
 button {
@@ -26,6 +27,10 @@ button {
 .products {
     margin-left: 10px;
     color: darkslategray;
+
+    button{
+        margin-left: 5px;
+    }
 }
 .del-btn {
     position: absolute;

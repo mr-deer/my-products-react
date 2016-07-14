@@ -1,4 +1,4 @@
-import React, { PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import Items from '../components/Items.jsx';
 
 const propTypes = {
@@ -7,6 +7,7 @@ const propTypes = {
   addItem: PropTypes.func,
   changeName: PropTypes.func,
   name: PropTypes.string,
+  removeItem: PropTypes.func,
 };
 
 const preventDefault = f => e => {
@@ -14,7 +15,7 @@ const preventDefault = f => e => {
   f(e);
 };
 
-export default function List({ list, removeList, addItem, changeName, name }) {
+export default function List({ list, removeList, addItem, changeName, name, removeItem }) {
   return (
     <li className="list-elem">
 
@@ -27,7 +28,13 @@ export default function List({ list, removeList, addItem, changeName, name }) {
 
       {
         list.items.map((item) =>
-          <Items name={item.name} key={item.id} />
+          <Items
+            name={item.name}
+            key={item.id}
+            removeItem={removeItem}
+            listId={list.id}
+            itemId={item.id}
+          />
         )
       }
 
