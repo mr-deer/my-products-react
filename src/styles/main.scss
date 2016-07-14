@@ -5,12 +5,18 @@
 
 body {
     font-size: 20px;
+    padding: 20px;
+}
+
+ul {
+    list-style-type: none;
 }
 
 .list-elem {
+    position: relative;
     border: 1px solid black;
     margin-bottom: 1px;
-    max-width: 200px;
+    max-width: 300px;
 }
 
 button {
@@ -20,4 +26,9 @@ button {
 .products {
     margin-left: 10px;
     color: darkslategray;
+}
+.del-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
 }
