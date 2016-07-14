@@ -41,7 +41,7 @@ class Lists extends Component {
     });
   }
 
-  changeItemName(id, itemName) {
+  changeItemName(itemName) {
     this.setState({
       itemName,
     });

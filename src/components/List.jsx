@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes} from 'react';
 import Items from '../components/Items.jsx';
 
 const propTypes = {
@@ -21,7 +21,7 @@ export default function List({ list, removeList, addItem, changeName, name }) {
       {list.name}
 
       <form onSubmit={preventDefault(() => addItem(list.id, name))}>
-        <input type="text" onChange={changeName(list.id)} value={name} />
+        <input type="text" onChange={changeName} value={name} />
         <button>add</button>
       </form>
 
