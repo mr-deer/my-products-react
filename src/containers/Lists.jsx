@@ -19,11 +19,6 @@ class Lists extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      itemName: '',
-      itemAmount: '',
-    };
-
     this.addItemHandler = this.addItemHandler.bind(this);
     this.removeListHandler = this.removeListHandler.bind(this);
     this.removeItemHandler = this.removeItemHandler.bind(this);
@@ -35,28 +30,11 @@ class Lists extends Component {
   }
 
   addItemHandler(listId, itemName, itemAmount) {
-    if (this.state.itemName.trim() === '') {
+    if (itemName.trim() === '') {
       return;
     }
 
     this.props.actions.addItem(listId, itemName, itemAmount);
-
-    this.setState({
-      itemName: '',
-      itemAmount: '',
-    });
-  }
-
-  changeItemName(itemName) {
-    this.setState({
-      itemName,
-    });
-  }
-
-  changeItemValue(itemAmount) {
-    this.setState({
-      itemAmount,
-    });
   }
 
   removeItemHandler(listId, itemId) {
@@ -73,10 +51,6 @@ class Lists extends Component {
         lists={this.props.lists.lists}
         removeList={this.removeListHandler}
         addItem={this.addItemHandler}
-        changeItemName={(e) => this.changeItemName(e.target.value)}
-        changeItemValue={(e) => this.changeItemValue(e.target.value)}
-        itemName={this.state.itemName}
-        itemAmount={this.state.itemAmount}
         removeItem={this.removeItemHandler}
         buyItem={this.buyItemHandler}
       />

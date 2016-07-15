@@ -5,8 +5,6 @@ const propTypes = {
   lists: PropTypes.array,
   removeList: PropTypes.func,
   addItem: PropTypes.func,
-  changeItemName: PropTypes.func,
-  changeItemValue: PropTypes.func,
   itemName: PropTypes.string,
   itemAmount: PropTypes.string,
   removeItem: PropTypes.func,
@@ -16,11 +14,7 @@ const propTypes = {
 export default function Lists({
     lists,
     removeList,
-    itemName,
-    itemAmount,
     addItem,
-    changeItemName,
-    changeItemValue,
     removeItem,
     buyItem,
   }) {
@@ -36,11 +30,7 @@ export default function Lists({
               list={item}
               key={item.id}
               removeList={removeList}
-              name={itemName}
-              amount={itemAmount}
               addItem={addItem}
-              changeName={changeItemName}
-              changeValue={changeItemValue}
               removeItem={removeItem}
               buyItem={buyItem}
             />
@@ -52,4 +42,3 @@ export default function Lists({
 }
 
 Lists.propTypes = propTypes;
-
