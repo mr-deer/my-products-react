@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ListsComponent from '../components/Lists.jsx';
 import { removeList } from '../actions/lists.js';
-import { addItem, removeItem } from '../actions/items.js';
+import { addItem, removeItem, buyItem } from '../actions/items.js';
 
 const propTypes = {
   lists: PropTypes.object,
@@ -11,6 +11,7 @@ const propTypes = {
     removeList: PropTypes.func,
     addItem: PropTypes.func,
     removeItem: PropTypes.func,
+    buyItem: PropTypes.func,
   }),
 };
 
@@ -25,6 +26,7 @@ class Lists extends Component {
     this.addItemHandler = this.addItemHandler.bind(this);
     this.removeListHandler = this.removeListHandler.bind(this);
     this.removeItemHandler = this.removeItemHandler.bind(this);
+    this.buyItemHandler = this.buyItemHandler.bind(this);
   }
 
   removeListHandler(id) {
@@ -53,6 +55,10 @@ class Lists extends Component {
     this.props.actions.removeItem(listId, itemId);
   }
 
+  buyItemHandler(listId, itemId) {
+    this.props.actions.buyItem(listId, itemId);
+  }
+
   render() {
     return (
       <ListsComponent
@@ -74,6 +80,7 @@ export default connect(state => ({
     removeList,
     addItem,
     removeItem,
+    buyItem,
   }, dispatch),
 }))(Lists);
 

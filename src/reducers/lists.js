@@ -1,6 +1,6 @@
 import uuid from 'uuid';
 import _ from 'lodash';
-import { ADD_ITEM } from '../actions/items.js';
+import { ADD_ITEM, REMOVE_ITEM } from '../actions/items.js';
 import { ADD_LIST, REMOVE_LIST } from '../actions/lists.js';
 
 const initialState = {
@@ -48,10 +48,33 @@ const lists = (state = initialState, action) => {
               {
                 id: uuid.v1(),
                 name: action.payload.name,
+                checked: false,
               },
             ],
           },
           ...state.lists.slice(index + 1),
+        ],
+      });
+    }
+    case REMOVE_ITEM: {
+      const listIndex = _.findIndex([...state.lists], (list) => (
+        list.id === action.payload.listId
+      ));
+      const itemIndex = _.findIndex([...state.lists[listIndex].items], (item) => (
+        item.id === action.payload.itemId
+      ));
+      return Object.assign({}, state, {
+        lists: [
+          ...state.lists.slice(0, listIndex),
+          {
+            id: state.lists[listIndex].id,
+            name: state.lists[listIndex].name,
+            items: [
+              ...state.lists[listIndex].items.slice(0, itemIndex),
+              ...state.lists[listIndex].items.slice(itemIndex + 1),
+            ],
+          },
+          ...state.lists.slice(listIndex + 1),
         ],
       });
     }
