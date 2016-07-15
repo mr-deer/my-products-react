@@ -1,6 +1,9 @@
 * {
     margin: 0;
     padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
@@ -24,23 +27,59 @@ button {
     padding: 0 10px;
 }
 
+h3 {
+    width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.amount-item-input {
+    width: 50px;
+}
+
 .item {
+    display:inline;
     background: #d6fcff;
-    &--isChecked{
-        background: greenyellow;
-    }
-}
-
-.products {
-    margin-left: 10px;
+    cursor: pointer;
     color: darkslategray;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    user-select: none;
 
-    button{
-        margin-left: 5px;
+    &--isChecked{
+        text-decoration: line-through;
+        background-color: #ffabc1;
     }
 }
+
 .del-btn {
     position: absolute;
     top: 5px;
     right: 5px;
 }
+
+.label-input-amount{
+    padding: 0 2px;
+    font-size: 16px;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+.item-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.itemName-input{
+    max-width: 115px;
+}
+
+.itemAmount-input{
+    max-width: 115px;
+}
+
