@@ -68,6 +68,7 @@ class Lists extends Component {
         changeItemName={(e) => this.changeItemName(e.target.value)}
         itemName={this.state.itemName}
         removeItem={this.removeItemHandler}
+        buyItem={this.buyItemHandler}
       />
     );
   }

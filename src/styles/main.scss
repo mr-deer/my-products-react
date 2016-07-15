@@ -24,6 +24,13 @@ button {
     padding: 0 10px;
 }
 
+.item {
+    background: #d6fcff;
+    &--isChecked{
+        background: greenyellow;
+    }
+}
+
 .products {
     margin-left: 10px;
     color: darkslategray;

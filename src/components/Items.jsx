@@ -6,12 +6,19 @@ const propTypes = {
   removeItem: PropTypes.func,
   listId: PropTypes.string,
   itemId: PropTypes.string,
+  buyItem: PropTypes.func,
 };
 
-function Items({ name, removeItem, listId, itemId }) {
+function Items({ name, removeItem, listId, itemId, buyItem }) {
   return (
     <div className="products">
-      <Item name={name} removeItem={removeItem} listId={listId} itemId={itemId} />
+      <Item
+        name={name}
+        removeItem={removeItem}
+        listId={listId}
+        itemId={itemId}
+        buyItem={buyItem}
+      />
     </div>
   );
 }

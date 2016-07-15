@@ -5,13 +5,18 @@ const propTypes = {
   removeItem: PropTypes.func,
   listId: PropTypes.string,
   itemId: PropTypes.string,
+  buyItem: PropTypes.func,
 };
 
-function Item({ name, removeItem, listId, itemId }) {
+function Item({ name, removeItem, listId, itemId, buyItem }) {
   return (
     <div>
-      {name}
-
+      <span
+        className="item"
+        onClick={() => buyItem(listId, itemId)}
+      >
+        {name}
+      </span>
       <button onClick={() => removeItem(listId, itemId)}>x</button>
     </div>
   );

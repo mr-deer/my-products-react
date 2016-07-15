@@ -8,6 +8,7 @@ const propTypes = {
   changeItemName: PropTypes.func,
   itemName: PropTypes.string,
   removeItem: PropTypes.func,
+  buyItem: PropTypes.func,
 };
 
 export default function Lists({
@@ -17,6 +18,7 @@ export default function Lists({
     changeItemName,
     itemName,
     removeItem,
+    buyItem,
   }) {
   const newestLists = lists.slice(-7).reverse();
 
@@ -34,6 +36,7 @@ export default function Lists({
               changeName={changeItemName}
               name={itemName}
               removeItem={removeItem}
+              buyItem={buyItem}
             />
           )
         }

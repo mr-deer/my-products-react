@@ -8,6 +8,7 @@ const propTypes = {
   changeName: PropTypes.func,
   name: PropTypes.string,
   removeItem: PropTypes.func,
+  buyItem: PropTypes.func,
 };
 
 const preventDefault = f => e => {
@@ -15,7 +16,15 @@ const preventDefault = f => e => {
   f(e);
 };
 
-export default function List({ list, removeList, addItem, changeName, name, removeItem }) {
+export default function List({
+    list,
+    removeList,
+    addItem,
+    changeName,
+    name,
+    removeItem,
+    buyItem,
+  }) {
   return (
     <li className="list-elem">
 
@@ -34,6 +43,7 @@ export default function List({ list, removeList, addItem, changeName, name, remo
             removeItem={removeItem}
             listId={list.id}
             itemId={item.id}
+            buyItem={buyItem}
           />
         )
       }
