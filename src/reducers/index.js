@@ -6,3 +6,7 @@ export default combineReducers({
   lists,
   routing,
 });
+
+export function getLists(state) {
+  return [];
+}
