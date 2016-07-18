@@ -9,7 +9,7 @@ export function addList(name) {
     payload: {
       id: uuid.v4(),
       name,
-    }
+    },
   };
 }
 

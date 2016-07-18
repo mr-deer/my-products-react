@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import Items from '../components/Items.jsx';
+import Item from '../components/Item.jsx';
 
 const propTypes = {
   list: PropTypes.object,
@@ -58,7 +58,7 @@ export default class List extends Component {
 
         {
           list.items.map((item) =>
-            <Items
+            <Item
               name={item.name}
               amount={item.amount}
               key={item.id}

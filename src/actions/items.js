@@ -1,14 +1,18 @@
+import uuid from 'uuid';
+
 export const ADD_ITEM = 'ADD_ITEM';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
 export const BUY_ITEM = 'BUY_ITEM';
 
-export function addItem(id, name, amount = '') {
+export function addItem(listId, name, amount = '') {
   return {
     type: ADD_ITEM,
     payload: {
-      id,
+      listId,
+      id: uuid.v4(),
       name,
       amount,
+      checked: false,
     },
   };
 }

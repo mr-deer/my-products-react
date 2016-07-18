@@ -4,10 +4,12 @@ import { bindActionCreators } from 'redux';
 import ListsComponent from '../components/Lists.jsx';
 import { removeList } from '../actions/lists.js';
 import { addItem, removeItem, buyItem } from '../actions/items.js';
-import { getLists } from '../reducers/index';
+import { getByIds, getIds } from '../reducers/index';
 
 const propTypes = {
-  lists: PropTypes.array,
+  lists: PropTypes.object,
+  ids: PropTypes.array,
+  byIds: PropTypes.object,
   actions: PropTypes.shape({
     removeList: PropTypes.func,
     addItem: PropTypes.func,
@@ -49,7 +51,8 @@ class Lists extends Component {
   render() {
     return (
       <ListsComponent
-        lists={this.props.lists}
+        ids={this.props.ids}
+        byIds={this.props.byIds}
         removeList={this.removeListHandler}
         addItem={this.addItemHandler}
         removeItem={this.removeItemHandler}
@@ -60,7 +63,8 @@ class Lists extends Component {
 }
 
 export default connect(state => ({
-  lists: getLists(state),
+  ids: getIds(state),
+  byIds: getByIds(state),
 }), dispatch => ({
   actions: bindActionCreators({
     removeList,

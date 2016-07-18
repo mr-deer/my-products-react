@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react';
 import List from './List.jsx';
 
 const propTypes = {
-  lists: PropTypes.array,
+  ids: PropTypes.array,
+  byIds: PropTypes.object,
   removeList: PropTypes.func,
   addItem: PropTypes.func,
   itemName: PropTypes.string,
@@ -12,23 +13,22 @@ const propTypes = {
 };
 
 export default function Lists({
-    lists,
+    ids,
+    byIds,
     removeList,
     addItem,
     removeItem,
     buyItem,
   }) {
-  const newestLists = lists.slice(-7).reverse();
-
   return (
     <div>
       <h1>Lists</h1>
       <ul>
         {
-          newestLists.map((item) =>
+          ids.map((id) =>
             <List
-              list={item}
-              key={item.id}
+              list={byIds[id]}
+              key={id}
               removeList={removeList}
               addItem={addItem}
               removeItem={removeItem}

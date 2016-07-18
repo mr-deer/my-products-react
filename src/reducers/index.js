@@ -8,5 +8,13 @@ export default combineReducers({
 });
 
 export function getLists(state) {
-  return [];
+  return state.lists;
+}
+
+export function getIds(state) {
+  return state.lists.ids;
+}
+
+export function getByIds(state) {
+  return state.lists.byIds;
 }
