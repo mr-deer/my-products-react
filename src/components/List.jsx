@@ -7,6 +7,7 @@ const propTypes = {
   addItem: PropTypes.func,
   removeItem: PropTypes.func,
   buyItem: PropTypes.func,
+  changeItemAmount: PropTypes.func,
 };
 
 export default class List extends Component {
@@ -49,6 +50,7 @@ export default class List extends Component {
       removeList,
       removeItem,
       buyItem,
+      changeItemAmount,
     } = this.props;
 
     return (
@@ -67,6 +69,7 @@ export default class List extends Component {
               itemId={item.id}
               buyItem={buyItem}
               checked={item.checked}
+              changeItemAmount={changeItemAmount}
             />
           )
         }

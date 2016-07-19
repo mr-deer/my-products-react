@@ -10,6 +10,7 @@ export default createDevTools(
     toggleVisibilityKey="ctrl-h"
     changePositionKey="ctrl-w"
     changeMonitorKey="ctrl-m"
+    defaultSize={0.5}
   >
     <LogMonitor />
     <Inspector />

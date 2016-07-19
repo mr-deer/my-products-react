@@ -10,6 +10,7 @@ const propTypes = {
   itemAmount: PropTypes.string,
   removeItem: PropTypes.func,
   buyItem: PropTypes.func,
+  changeItemAmount: PropTypes.func,
 };
 
 export default function Lists({
@@ -19,6 +20,7 @@ export default function Lists({
     addItem,
     removeItem,
     buyItem,
+    changeItemAmount,
   }) {
   return (
     <div>
@@ -33,6 +35,7 @@ export default function Lists({
               addItem={addItem}
               removeItem={removeItem}
               buyItem={buyItem}
+              changeItemAmount={changeItemAmount}
             />
           )
         }

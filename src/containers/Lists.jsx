@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ListsComponent from '../components/Lists.jsx';
 import { removeList } from '../actions/lists.js';
-import { addItem, removeItem, buyItem } from '../actions/items.js';
+import { addItem, removeItem, buyItem, changeItemAmount } from '../actions/items.js';
 import { getByIds, getIds } from '../reducers/index';
 
 const propTypes = {
@@ -15,6 +15,7 @@ const propTypes = {
     addItem: PropTypes.func,
     removeItem: PropTypes.func,
     buyItem: PropTypes.func,
+    changeItemAmount: PropTypes.func,
   }),
 };
 
@@ -26,6 +27,7 @@ class Lists extends Component {
     this.removeListHandler = this.removeListHandler.bind(this);
     this.removeItemHandler = this.removeItemHandler.bind(this);
     this.buyItemHandler = this.buyItemHandler.bind(this);
+    this.changeItemAmountHandler = this.changeItemAmountHandler.bind(this);
   }
 
   removeListHandler(id) {
@@ -47,6 +49,9 @@ class Lists extends Component {
   buyItemHandler(listId, itemId) {
     this.props.actions.buyItem(listId, itemId);
   }
+  changeItemAmountHandler(listId, itemId, amount) {
+    this.props.actions.changeItemAmount(listId, itemId, amount);
+  }
 
   render() {
     return (
@@ -57,6 +62,7 @@ class Lists extends Component {
         addItem={this.addItemHandler}
         removeItem={this.removeItemHandler}
         buyItem={this.buyItemHandler}
+        changeItemAmount={this.changeItemAmountHandler}
       />
     );
   }
@@ -71,6 +77,7 @@ export default connect(state => ({
     addItem,
     removeItem,
     buyItem,
+    changeItemAmount,
   }, dispatch),
 }))(Lists);
 
