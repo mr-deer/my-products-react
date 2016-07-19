@@ -26,7 +26,7 @@ class Item extends Component {
   changeAmount(e) {
     const { listId, itemId } = this.props;
     this.setState({ amount: e.target.value });
-    this.props.changeItemAmount( listId, itemId, e.target.value);
+    this.props.changeItemAmount(listId, itemId, e.target.value);
   }
 
   render() {

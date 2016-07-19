@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import _ from 'lodash';
 import { ADD_LIST, REMOVE_LIST } from '../actions/lists.js';
-import { ADD_ITEM, REMOVE_ITEM, BUY_ITEM } from '../actions/items.js';
+import { ADD_ITEM, REMOVE_ITEM, BUY_ITEM, CHANGE_ITEM_AMOUNT } from '../actions/items.js';
 
 function list(state = {}, action) {
   switch (action.type) {
@@ -41,6 +41,22 @@ function list(state = {}, action) {
         ],
       };
     }
+    case CHANGE_ITEM_AMOUNT: {
+      const index = _.findIndex(state.items, ((item) =>
+        item.id === action.payload.itemId
+      ));
+      return {
+        ...state,
+        items: [
+          ...state.items.slice(0, index),
+          {
+            ...state.items[index],
+            amount: action.payload.amount,
+          },
+          ...state.items.slice(index + 1),
+        ],
+      };
+    }
     default:
       return state;
   }
@@ -63,6 +79,7 @@ function byIds(
         ...state,
         [action.payload.listId]: list(state[action.payload.listId], action),
       };
+    case CHANGE_ITEM_AMOUNT:
     case BUY_ITEM:
       return {
         ...state,
